@@ -9,34 +9,34 @@ import static org.fusesource.jansi.Ansi.ansi;
 class CardTest {
 
   @Test
-  public void withNumberCardHasNumericValueOfTheNumber() throws Exception {
-    Card card = new Card("don't care", "7");
+  public void withNumberCardHasNumericValueOfTheNumber() {
+    Card card = new Card(null, "7");
 
     assertThat(card.rankValue())
         .isEqualTo(7);
   }
 
   @Test
-  public void withValueOfQueenHasNumericValueOf10() throws Exception {
-    Card card = new Card("X", "Q");
+  public void withValueOfQueenHasNumericValueOf10() {
+    Card card = new Card(null, "Q");
 
     assertThat(card.rankValue())
         .isEqualTo(10);
   }
 
   @Test
-  public void withAceHasNumericValueOf1() throws Exception {
-    Card card = new Card("don't care", "A");
+  public void withAceHasNumericValueOf1() {
+    Card card = new Card(null, "A");
 
     assertThat(card.rankValue())
         .isEqualTo(1);
   }
 
   @Test
-  public void suitOfHeartsOrDiamondsIsDisplayedInRed() throws Exception {
+  public void suitOfHeartsOrDiamondsIsDisplayedInRed() {
     // given a card with Hearts or Diamonds
-    Card heartsCard = new Card("♥", "10");
-    Card diamondsCard = new Card("♦", "8");
+    Card heartsCard = new Card(Suit.HEARTS, "10");
+    Card diamondsCard = new Card(Suit.DIAMONDS, "8");
 
     // when we ask for its display representation
     String ansiRedString = ansi().fgRed().toString();
