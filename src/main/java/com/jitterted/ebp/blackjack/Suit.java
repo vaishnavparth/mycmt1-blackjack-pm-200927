@@ -1,23 +1,24 @@
 package com.jitterted.ebp.blackjack;
 
 public enum Suit {
-    HEARTS("♥"),
-    SPADES("♠"),
-    DIAMONDS("♦"),
-    CLUBSS("♣");
+    HEARTS("♥", true),
+    SPADES("♠", false),
+    DIAMONDS("♦", true),
+    CLUBSS("♣", false);
 
     private final String icon;
+    private final boolean isRed;
 
-    Suit(String icon) {
+    Suit(String icon, boolean isRed) {
         this.icon = icon;
+        this.isRed = isRed;
     }
 
     public String getIcon() {
         return this.icon;
     }
 
-    @Override
-    public String toString() {
-        return getIcon();
+    public boolean isRed() {
+        return this.isRed;
     }
 }
